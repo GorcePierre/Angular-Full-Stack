@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth.module';
 import { CatService } from './services/cat.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
@@ -30,6 +31,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
+    AuthModule,
     RoutingModule,
     SharedModule
   ],
