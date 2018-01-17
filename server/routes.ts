@@ -25,10 +25,14 @@ export default function setRoutes(app) {
   };
 
   const isAdmin = (req, res, next) => {
-    if (!req.auth || !req.auth.user || req.auth.user.role != 'admin') {
-      res.status(403).send('unauthorized');
+    if (!req.auth || !req.auth.user) {
+      res.status(401).send('invalid token');
     } else {
-      next();
+      if (req.auth.user.role != 'admin') {
+        res.status(403).send('forbidden');
+      } else {
+        next();
+      }
     }
   };
 
