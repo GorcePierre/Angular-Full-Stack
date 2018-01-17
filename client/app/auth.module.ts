@@ -4,7 +4,7 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({
-        noClientCheck: true
+        noJwtError: true
     }), http, options);
 }
 
